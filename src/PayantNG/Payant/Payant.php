@@ -481,13 +481,15 @@ class Payant {
 		public function sendRequest($method,$url,$params=[])
 		{
 			try{
-				if (strtolower($method) == 'get'){
+				$method = strtolower($method);
+				
+				if ($method == 'get'){
 					$result = $this->client->request('GET', $url);
-				}elseif (strtolower($method) == 'post'){
+				}elseif ($method == 'post'){
 					$result = $this->client->request('POST', $url, $params);
-				}elseif (strtolower($method) == 'put'){
+				}elseif ($method == 'put'){
 					$result = $this->client->request('PUT', $url, $params);
-				}elseif (strtolower($method) == 'delete'){
+				}elseif ($method == 'delete'){
 					$result = $this->client->request('DELETE', $url);
 				}
 
